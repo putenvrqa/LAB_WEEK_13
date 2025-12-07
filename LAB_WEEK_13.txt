@@ -1,0 +1,34 @@
+1. MVVM
+MVVM penting karena memisahkan tampilan (View), logika aplikasi (ViewModel), dan data (Model). Dengan pemisahan ini, kode lebih bersih, mudah dirawat, serta ViewModel tetap bertahan saat rotasi layar sehingga data tidak hilang.
+
+Model:
+Movie.kt, MovieDao.kt, MovieDatabase.kt, MovieRepository.kt
+
+View:
+activity_main.xml, view_movie_item.xml, MainActivity.kt, DetailsActivity.kt
+
+ViewModel:
+MovieViewModel.kt
+
+
+2. Data Binding
+Data Binding lebih efisien karena tidak perlu lagi memakai findViewById, sehingga kode lebih sedikit dan lebih rapi. UI juga dapat otomatis berubah ketika data pada ViewModel berubah. Selain itu, Data Binding lebih aman (type-safe) dan mengurangi boilerplate di Activity.
+
+
+3. Singleton Pattern
+Singleton memastikan bahwa database Room hanya dibuat satu kali selama aplikasi berjalan. Hal ini mencegah pemborosan memori, menghindari error dari banyak instance database, dan menjaga akses data tetap konsisten.
+
+
+4. Repository Pattern
+Repository Pattern membuat ViewModel tidak perlu tahu sumber data berasal dari mana. Semua logika pengambilan data, baik dari API maupun database lokal, disatukan di Repository. Ini membuat kode lebih mudah dirawat, lebih terstruktur, dan lebih mudah diuji.
+
+
+5. Worker Manager
+Selain Worker, cara lain untuk menyegarkan data di database adalah:
+- Refresh manual oleh pengguna (misalnya tombol refresh)
+- AlarmManager untuk penjadwalan background task
+- Foreground Service untuk proses yang berjalan terus-menerus
+- Firebase Cloud Messaging untuk memicu refresh dari server
+- Timer atau coroutine periodik saat aplikasi sedang aktif
+
+Namun Worker Manager tetap pilihan terbaik untuk tugas background yang harus tetap jalan walaupun aplikasi ditutup atau perangkat direstart.

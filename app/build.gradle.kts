@@ -43,6 +43,8 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.recyclerview)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -54,6 +56,7 @@ dependencies {
     implementation(libs.converter.moshi)
     implementation(libs.moshi.kotlin)
     kapt(libs.moshi.kotlin.codegen)
+    kapt (libs.androidx.room.compiler)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.lifecycle.livedata.ktx)
